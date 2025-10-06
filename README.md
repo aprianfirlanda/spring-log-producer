@@ -24,5 +24,5 @@ chmod +x build-and-push.sh
 
 then run this command
 ```shell
-./build-and-push.sh 1.0.2
+./build-and-push.sh
 ```

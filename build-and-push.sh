@@ -4,7 +4,9 @@ set -e  # exit if any command fails
 # ===== CONFIGURATION =====
 APP_NAME="spring-log-producer"
 IMAGE_NAME="aprianfirlanda/${APP_NAME}"
-VERSION="${1:-0.1.0}"
+GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "no-tag")
+GIT_COMMIT=$(git rev-parse --short HEAD)
+VERSION="${GIT_TAG}-${GIT_COMMIT}"
 
 # ===== FUNCTIONS =====
 echo_section() {
@@ -29,4 +31,3 @@ docker push ${IMAGE_NAME}:${VERSION}
 # ===== DONE =====
 echo_section "✅ Build & push complete!"
 echo "Image pushed: ${IMAGE_NAME}:${VERSION}"
-echo "Latest tag  : ${IMAGE_NAME}:latest"
