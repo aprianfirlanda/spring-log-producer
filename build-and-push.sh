@@ -26,7 +26,7 @@ docker build -t ${IMAGE_NAME}:${VERSION} .
 
 # ===== 3️⃣ Push Docker image =====
 echo_section "Pushing image to Docker Hub..."
-docker push ${IMAGE_NAME}:${VERSION}
+docker push ${IMAGE_NAME}:"${VERSION}"
 
 # ===== DONE =====
 echo_section "✅ Build & push complete!"
