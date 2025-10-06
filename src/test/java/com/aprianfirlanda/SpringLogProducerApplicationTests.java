@@ -1,4 +1,4 @@
-package com.aprianfirlanda.spring_log_producer;
+package com.aprianfirlanda;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.aprianfirlanda.spring_log_producer;
+package com.aprianfirlanda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
