@@ -1,0 +1,20 @@
+### INFO log
+GET http://localhost:8080/logs/INFO?message=hello-info
+
+### DEBUG log
+GET http://localhost:8080/logs/DEBUG?message=test-debug
+
+### ERROR log
+GET http://localhost:8080/logs/ERROR?message=oops
+
+
+### Exception log
+GET http://localhost:8080/logs/exception?message=boom
+
+
+### Bulk 50 INFO logs with 50ms delay
+GET http://localhost:8080/logs/bulk?count=50&level=INFO&sleepMs=50
+
+
+### Random log (any level)
+GET http://localhost:8080/logs/random
