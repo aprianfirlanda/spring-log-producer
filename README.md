@@ -26,3 +26,10 @@ then run this command
 ```shell
 ./build-and-push.sh
 ```
+
+run as container
+```shell
+docker login docker.io
+docker pull docker.io/aprianfirlanda/spring-log-producer:0.1.0
+docker run -d --name spring-log-producer -p 8080:8080 docker.io/aprianfirlanda/spring-log-producer:0.1.0
+```
