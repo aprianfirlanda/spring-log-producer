@@ -20,13 +20,15 @@ echo_section() {
 echo_section "Building Spring Boot JAR..."
 ./mvnw -DskipTests package
 
-# ===== 2️⃣ Build Docker image =====
-echo_section "Building Docker image..."
-docker build -t ${IMAGE_NAME}:"${VERSION}" .
-
-# ===== 3️⃣ Push Docker image =====
-echo_section "Pushing image to Docker Hub..."
-docker push ${IMAGE_NAME}:"${VERSION}"
+# ===== 2️⃣ Build & Push Docker image =====
+echo_section "Building & Pushing Docker image..."
+if ! docker buildx inspect multiarch >/dev/null 2>&1; then
+  docker buildx create --name multiarch --driver docker-container --use
+else
+  docker buildx use multiarch
+fi
+docker buildx inspect --bootstrap >/dev/null
+docker buildx build --platform linux/amd64,linux/arm64 -t ${IMAGE_NAME}:"${VERSION}" --push .
 
 # ===== DONE =====
 echo_section "✅ Build & push complete!"
